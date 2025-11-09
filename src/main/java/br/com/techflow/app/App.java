@@ -12,7 +12,8 @@ public class App {
             System.out.println("\n--- SISTEMA DE LOGIN ---");
             System.out.println("1. Registrar novo usuário");
             System.out.println("2. Fazer Login");
-            System.out.println("3. Sair");
+            System.out.println("3. Atualizar senha");
+            System.out.println("4. Sair");
             System.out.print("Escolha uma opção: ");
 
             String opcao = scanner.nextLine();
@@ -44,7 +45,22 @@ public class App {
                     }
                     break;
 
-                case "3": // SAIR
+                case "3": // UPDATE
+                    System.out.print("Digite o username: ");
+                    String updateUser = scanner.nextLine();
+                    System.out.print("Digite a SENHA ANTIGA: ");
+                    String oldPass = scanner.nextLine();
+                    System.out.print("Digite a SENHA NOVA: ");
+                    String newPass = scanner.nextLine();
+
+                    if (service.atualizarSenha(updateUser, oldPass, newPass)) {
+                        System.out.println("Senha atualizada com sucesso!");
+                    } else {
+                        System.out.println("Erro: Usuário ou senha antiga incorretos.");
+                    }
+                    break;
+
+                case "4": // SAIR
                     System.out.println("Saindo...");
                     scanner.close();
                     return;
