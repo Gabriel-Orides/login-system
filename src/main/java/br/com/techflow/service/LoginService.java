@@ -32,5 +32,15 @@ public class LoginService {
         return true;
     }
 
+    public boolean fazerLogin(String username, String password) {
+        UsuarioDatabase db = dao.carregar();
+
+        for (Usuario u : db.getUsuarios()) {
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+                return true; // Login com sucesso
+            }
+        }
+        return false; // Falha no login
+    }
 
 }
