@@ -43,4 +43,24 @@ public class LoginService {
         return false; // Falha no login
     }
 
+    public boolean atualizarSenha(String username, String senhaAntiga, String senhaNova) {
+        UsuarioDatabase db = dao.carregar();
+        boolean atualizado = false;
+
+        for (Usuario u : db.getUsuarios()) {
+            // Encontra o usuário e verifica se a senha antiga está correta
+            if (u.getUsername().equals(username) && u.getPassword().equals(senhaAntiga)) {
+                u.setPassword(senhaNova); // Atualiza a senha no objeto
+                atualizado = true;
+                break; // Para o loop
+            }
+        }
+
+        if (atualizado) {
+            dao.salvar(db); // Salva o banco de dados inteiro com a senha nova
+        }
+
+        return atualizado;
+    }
+
 }
