@@ -7,14 +7,37 @@ public class Usuario {
 
     private String username;
     private String password;
+    private String fullName; // NOVO
 
-    // Construtor vazio é OBRIGATÓRIO para JAXB
-    public Usuario() {
+    @XmlElement
+    public String getFullName() {
+        return fullName;
     }
 
-    public Usuario(String username, String password) {
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    @XmlElement
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    private String department; // NOVO
+
+    // Construtor vazio (obrigatório para JAXB)
+    public Usuario() { }
+
+    // Construtor atualizado
+    public Usuario(String username, String password, String fullName, String department) {
         this.username = username;
         this.password = password;
+        this.fullName = fullName;
+        this.department = department;
     }
 
     @XmlElement

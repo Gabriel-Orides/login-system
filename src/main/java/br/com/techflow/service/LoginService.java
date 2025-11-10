@@ -15,7 +15,7 @@ public class LoginService {
     /**
      * Tenta registrar um novo usuário.
      */
-    public boolean registrar(String username, String password) {
+    public boolean registrar(String username, String password, String fullName, String department) { // ASSINATURA MUDOU
         UsuarioDatabase db = dao.carregar();
 
         // Verifica se o usuário já existe
@@ -26,7 +26,7 @@ public class LoginService {
         }
 
         // Se não existe, cria e salva
-        Usuario novoUsuario = new Usuario(username, password);
+        Usuario novoUsuario = new Usuario(username, password, fullName, department); // CHAMA NOVO CONSTRUTOR
         db.addUsuario(novoUsuario);
         dao.salvar(db);
         return true;

@@ -20,13 +20,17 @@ public class App {
             String opcao = scanner.nextLine();
 
             switch (opcao) {
-                case "1": // CREATE
+                case "1":
                     System.out.print("Digite o username: ");
                     String regUser = scanner.nextLine();
                     System.out.print("Digite a senha: ");
                     String regPass = scanner.nextLine();
+                    System.out.print("Digite o NOME COMPLETO: ");
+                    String regName = scanner.nextLine();
+                    System.out.print("Digite o SETOR: ");
+                    String regDept = scanner.nextLine();
 
-                    if (service.registrar(regUser, regPass)) {
+                    if (service.registrar(regUser, regPass, regName, regDept)) {
                         System.out.println("Usuário registrado com sucesso!");
                     } else {
                         System.out.println("Erro: Usuário já existe.");
