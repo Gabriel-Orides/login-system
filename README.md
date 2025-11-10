@@ -25,6 +25,14 @@ Este sistema fornece um conjunto completo de operações CRUD para a entidade `U
 * **CI/CD:** GitHub Actions para integração contínua e execução automática de testes.
 * **Packaging:** Maven Shade Plugin para criar um "fat jar" executável.
 
+## 🔄 Simulação de Mudança de Escopo
+
+Conforme a metodologia Ágil, o escopo do projeto foi adaptado para atender a uma nova necessidade do cliente.
+
+* **Mudança Solicitada:** Adicionar os campos "Nome Completo" e "Setor" ao cadastro de usuário.
+* **Justificativa:** O cliente (startup de logística) identificou a necessidade de associar o login do funcionário ao seu nome real e ao seu setor de atuação (ex: "Armazém", "Entregas"), visando a futura implementação do sistema de gerenciamento de tarefas.
+* **Rastreabilidade:** Esta mudança foi documentada e gerenciada através do card `Adicionar o nome completo do usuário e seu setor (mudança de escopo)` no quadro Kanban do projeto.
+
 ## 🚀 Como Executar o Projeto
 
 Existem duas maneiras de executar o projeto: utilizando o executável `.jar` ou compilando o código-fonte.
