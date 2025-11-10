@@ -13,7 +13,7 @@ public class App {
             System.out.println("1. Registrar novo usuário");
             System.out.println("2. Fazer Login");
             System.out.println("3. Atualizar senha");
-            System.out.println("4. Deletar usuário (Delete)");
+            System.out.println("4. Deletar usuário");
             System.out.println("5. Sair");
             System.out.print("Escolha uma opção: ");
 
