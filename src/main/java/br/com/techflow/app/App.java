@@ -13,7 +13,8 @@ public class App {
             System.out.println("1. Registrar novo usuário");
             System.out.println("2. Fazer Login");
             System.out.println("3. Atualizar senha");
-            System.out.println("4. Sair");
+            System.out.println("4. Deletar usuário (Delete)");
+            System.out.println("5. Sair");
             System.out.print("Escolha uma opção: ");
 
             String opcao = scanner.nextLine();
@@ -60,7 +61,20 @@ public class App {
                     }
                     break;
 
-                case "4": // SAIR
+                case "4": // DELETE
+                    System.out.print("Digite o username para deletar: ");
+                    String delUser = scanner.nextLine();
+                    System.out.print("Digite a senha para confirmar: ");
+                    String delPass = scanner.nextLine();
+
+                    if (service.deletarUsuario(delUser, delPass)) {
+                        System.out.println("Usuário deletado com sucesso.");
+                    } else {
+                        System.out.println("Erro: Usuário ou senha incorretos.");
+                    }
+                    break;
+
+                case "5": // SAIR
                     System.out.println("Saindo...");
                     scanner.close();
                     return;
