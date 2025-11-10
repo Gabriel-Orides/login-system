@@ -63,4 +63,20 @@ public class LoginService {
         return atualizado;
     }
 
+    public boolean deletarUsuario(String username, String password) {
+        UsuarioDatabase db = dao.carregar();
+
+        // Usa o método 'removeIf' da lista, que é limpo e eficiente
+        // Ele remove o item da lista se a condição for verdadeira
+        boolean removido = db.getUsuarios().removeIf(
+                usuario -> usuario.getUsername().equals(username) && usuario.getPassword().equals(password)
+        );
+
+        if (removido) {
+            dao.salvar(db); // Salva o banco de dados sem o usuário
+        }
+
+        return removido;
+    }
+
 }
